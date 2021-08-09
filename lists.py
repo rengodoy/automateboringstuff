@@ -31,6 +31,40 @@ When passing a list argument to a function, you are actually passing a list refe
 Changes made to a list in a function will affect the list outside the function.
 The \ line continuation character can be used to stretch Python instruction across multiple lines.
 
+
+
+copy.copy vs copy.deepcopy
+>>> import copy
+>>> b = copy.copy(bacon)
+>>> b.append('a')
+>>> b
+[3.14, 11, 'cat', True, 99, 'a']
+>>> bacon
+[3.14, 11, 'cat', True, 99]
+>>> bacon.append([2,3,4])
+>>> bacon
+[3.14, 11, 'cat', True, 99, [2, 3, 4]]
+>>> b = copy.copy(bacon)
+>>> b.append('a')
+>>> b
+[3.14, 11, 'cat', True, 99, [2, 3, 4], 'a']
+>>> bacon
+[3.14, 11, 'cat', True, 99, [2, 3, 4]]
+>>> bacon[5].append(99)
+>>> bacon
+[3.14, 11, 'cat', True, 99, [2, 3, 4, 99]]
+>>> b
+[3.14, 11, 'cat', True, 99, [2, 3, 4, 99], 'a']
+>>> b = copy.deepcopy(bacon)
+>>> b
+[3.14, 11, 'cat', True, 99, [2, 3, 4, 99]]
+>>> bacon[5].append(3)
+>>> bacon
+[3.14, 11, 'cat', True, 99, [2, 3, 4, 99, 3]]
+>>> b
+[3.14, 11, 'cat', True, 99, [2, 3, 4, 99]]
+
+
 """
 
 import copy
@@ -38,7 +72,8 @@ import copy
 def eggs(cheese, milk):
     cheese.append('Hello')
     milk += milk
-
+ 
+ 
 
 spam = [1, 2, 3, 5]
 spam2 = copy.deepcopy(spam)
