@@ -33,3 +33,22 @@ The \ line continuation character can be used to stretch Python instruction acro
 
 """
 
+import copy
+
+def eggs(cheese, milk):
+    cheese.append('Hello')
+    milk += milk
+
+
+spam = [1, 2, 3, 5]
+spam2 = copy.deepcopy(spam)
+bread = 5
+eggs(spam, bread)
+print(spam)
+print(bread)
+eggs(spam, bread)
+print(spam)
+print(bread)
+print(spam2)
+eggs(spam2, 1)
+print(spam2)
