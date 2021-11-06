@@ -38,5 +38,15 @@ A ^ caret makes it a negative character class, matching anything not in the brac
 \s Any space, tab, os new line character. (Think of this as matching "space" characters)
 \S Any character that is not a space, tab or new line.
 
+^ means the string must start with pattern, $ means the string must end with the pattern. Both means the entire string must match the entire pattern.
+The . dot is a wildcard; it matches any character except newlines.
+Pass re.DOTALL as the second argument to re.compile() to make the . dot match newlines as well.
+Pass re.I as the second argument to re.compile() to make the matching case-insensitive.
+
+Using '.*' exemple:
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+nameRegex.findall('First Name: Al Last Name: Sweigart')
+[('Al', 'Sweigart')]
+
 
 """
