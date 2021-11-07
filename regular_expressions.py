@@ -48,5 +48,9 @@ nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
 nameRegex.findall('First Name: Al Last Name: Sweigart')
 [('Al', 'Sweigart')]
 
+The sub() regex method will substitute matches with some other text.
+Using \1, \2 and so will substitute group 1, 2, etc in the regex pattern.
+Passing re.VERBOSE lets you add whitespace and comments to the regex string passed to re.compile().
+If you want to pass multiple arguments (re.DOTALL , re.IGNORECASE, re.VERBOSE), combine them with the | bitwise operator.
 
 """
