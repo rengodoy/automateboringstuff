@@ -11,10 +11,37 @@ def stripr(txt, remove):
     inicioRegex = re.compile(r'^([{}]+)(.*)'.format(remove))
     fimRegex = re.compile(r'([{}]+$)'.format(remove))
     inicio = inicioRegex.search(txt)
-    fim = fimRegex.search(inicio.group(2))
-    return inicio.group(2)[:fim.span()[0]]
+    if inicio:
+        fim = fimRegex.search(inicio.group(2))
+        if fim:
+            return inicio.group(2)[:fim.span()[0]]
+        else:
+            return inicio.group(2)
+    else:
+        fim = fimRegex.search(txt)
+        if fim:
+            return txt[:fim.span()[0]]
+        else:
+            return txt
+
+
 
 
 
 x = stripr('      teste   teste       ', ' ')
 print(x)
+
+
+y = stripr('..........    teste     .. .. . .tes testes.........      ', '.')
+print(y)
+
+
+z = stripr('          ..........    teste     .. .. . .tes testes.........', '.')
+print(z)
+
+
+w = stripr('          ..........    teste     .. .. . .tes testes.........        ', '.')
+print(z)
+
+
+import ipdb; ipdb.set_trace()
