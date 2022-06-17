@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/media/renato/bkp/workspace_estudos/automateboringstuff/debug.py", line 18, in <module>
+    boxPrint('*', 1, 50)
+  File "/media/renato/bkp/workspace_estudos/automateboringstuff/debug.py", line 8, in boxPrint
+    raise Exception('Height must be greater than 2.')
+Exception: Height must be greater than 2.
