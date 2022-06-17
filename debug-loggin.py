@@ -16,3 +16,11 @@ def factorial(n):
 print(factorial(5))
 
 logging.debug('End of program')
+
+
+# Log Levels:
+# DEBUG
+# INFO
+# WARNING
+# ERROR
+# CRITICAL (highest level)
